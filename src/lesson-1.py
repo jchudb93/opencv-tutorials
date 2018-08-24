@@ -1,9 +1,12 @@
 import cv2
-import numpy as np 
+import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 
-DATA = './img'
+DATA = '../img'
+
+print(os.getcwd())
 
 img = cv2.imread(f'{DATA}/captcha.PNG', cv2.IMREAD_GRAYSCALE)
 
