@@ -37,6 +37,6 @@ print("vertical length ", vertical_length)
 
 vertical = cv2.erode(vertical, vertical_structure, (-1, -1))
 vertical = cv2.dilate(vertical, vertical_structure, (-1, -1))
-cv2.imshow('image', horizontal )
+cv2.imshow('image', horizontal)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

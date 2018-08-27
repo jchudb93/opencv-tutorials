@@ -8,9 +8,12 @@ DATA = '../img'
 
 print(os.getcwd())
 
-img = cv2.imread(f'{DATA}/captcha2.PNG')
+img = cv2.imread(f'{DATA}/captcha.PNG')
 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+gray[(gray == 140)] = 0
+
 bilateral = cv2.bilateralFilter(gray, 3, 75, 75)
 ret, thresh = cv2.threshold(
     bilateral,
@@ -39,6 +42,6 @@ kernel_1 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (1, 2))
 dilation_1 = cv2.dilate(sure_fg, kernel_1, iterations=2)
 erosion_1 = cv2.erode(dilation_1, kernel_1, iterations=3)
 
-plt.imshow(erosion_1, 'gray')
+cv2.imshow("img", erosion_1)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
