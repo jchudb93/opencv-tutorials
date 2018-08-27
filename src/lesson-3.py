@@ -8,7 +8,7 @@ DATA = '../img'
 
 print(os.getcwd())
 
-img = cv2.imread(f'{DATA}/captcha.PNG')
+img = cv2.imread(f'{DATA}/captcha2.PNG')
 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 bw = cv2.adaptiveThreshold(
@@ -37,6 +37,6 @@ print("vertical length ", vertical_length)
 
 vertical = cv2.erode(vertical, vertical_structure, (-1, -1))
 vertical = cv2.dilate(vertical, vertical_structure, (-1, -1))
-cv2.imshow('image', vertical)
+cv2.imshow('image', horizontal )
 cv2.waitKey(0)
 cv2.destroyAllWindows()
