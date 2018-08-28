@@ -42,6 +42,10 @@ kernel_1 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (1, 2))
 dilation_1 = cv2.dilate(sure_fg, kernel_1, iterations=2)
 erosion_1 = cv2.erode(dilation_1, kernel_1, iterations=3)
 
-cv2.imshow("img", erosion_1)
+kernel_2 = np.ones((2, 1), np.uint8)
+
+dilation_2 = cv2.dilate(erosion_1, kernel_2, iterations=2)
+
+cv2.imshow("img", dilation_2)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
