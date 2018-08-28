@@ -14,4 +14,4 @@ cv2.imshow("img", green)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-cv2.imwrite(f'{DATA}sat-output.jpg', green)
+cv2.imwrite(f'{DATA}/sat-output.jpg', green)

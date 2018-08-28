@@ -6,6 +6,12 @@ import os
 
 DATA = '../img'
 
+
+def getContours(im, approx_value=1):
+    # Return contours approximated
+    contours, hieriarchy = cv2.findContours(im, 1, 2)
+    return contours
+
 print(os.getcwd())
 
 img = cv2.imread(f'{DATA}/captcha.PNG')
@@ -42,10 +48,7 @@ kernel_1 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (1, 2))
 dilation_1 = cv2.dilate(sure_fg, kernel_1, iterations=2)
 erosion_1 = cv2.erode(dilation_1, kernel_1, iterations=3)
 
-kernel_2 = np.ones((2, 1), np.uint8)
-
-dilation_2 = cv2.dilate(erosion_1, kernel_2, iterations=2)
-
-cv2.imshow("img", dilation_2)
+contours = getContours(erosion_1, 3)
+cv2.imshow("img", contours)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
