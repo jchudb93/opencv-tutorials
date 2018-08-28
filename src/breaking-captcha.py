@@ -8,6 +8,7 @@ DATA = '../img'
 
 # https://training.play-with-docker.com/ops-s1-hello
 
+
 def getContours(im, approx_value=1):
     # Return contours approximated
     contours, hieriarchy = cv2.findContours(im, 1, 2)
