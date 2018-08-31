@@ -2490,3 +2490,5 @@ er	INFO	Running command: "C:\\Users\\S82483\\AppData\\Local\\Mozilla Firefox\\fi
 1535746763151	addons.productaddons	INFO	Downloaded file will be saved to C:\Users\S82483\AppData\Local\Temp\tmpaddon-250bf5
 1535746774831	addons.productaddons	INFO	downloadXHR File download. status=200
 1535746774837	addons.productaddons	INFO	Downloaded file will be saved to C:\Users\S82483\AppData\Local\Temp\tmpaddon-58b1e1
+1535747128210	addons.manager	DEBUG	Background update check beginning
+1535747128210	addons.manager	DEBUG	Background update check complete

@@ -60,9 +60,11 @@ def transform_image(image_path, output_filename='image', img_format = 'PNG'):
     img = cv2.imread(image_path)
     
     img = np.array(img, dtype=np.uint8)
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     
-    bilateral = cv2.bilateralFilter(gray, 3, 75, 75)
+    
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    blur = cv2.GaussianBlur(gray,(5,5),0)
+    bilateral = cv2.bilateralFilter(blur, 5, 75, 75)
     
     ret, thresh = cv2.threshold(
         bilateral,
