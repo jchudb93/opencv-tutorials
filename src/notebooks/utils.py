@@ -52,14 +52,18 @@ def get_captcha(driver, element, path):
     bottom = location['y'] + size['height']
 
     image = image.crop((left, top, right, bottom))  # defines crop points
-    image.save(path, 'PNG')  # saves new cropped image
+    image.save(path, '')  # saves new cropped image
 
 def transform_image(image_path, output_filename='image', img_format = 'PNG'):
     
+    # print(image_path)
     img = cv2.imread(image_path)
+    
+    img = np.array(img, dtype=np.uint8)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     
     bilateral = cv2.bilateralFilter(gray, 3, 75, 75)
+    
     ret, thresh = cv2.threshold(
         bilateral,
         25,
@@ -87,8 +91,4 @@ def transform_image(image_path, output_filename='image', img_format = 'PNG'):
     dilation_1 = cv2.dilate(sure_fg, kernel_1, iterations=2)
     erosion_1 = cv2.erode(dilation_1, kernel_1, iterations=3)
 
-    cv2.imshow("img", erosion_1)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
-    
+    cv2.imwrite(f'{output_filename}.{img_format}', erosion_1)
