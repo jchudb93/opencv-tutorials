@@ -17,7 +17,7 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # gray[(gray == 140)] = 0
 
-bilateral = cv2.bilateralFilter(gray, 5, 75, 75)
+bilateral = cv2.bilateralFilter(gray, 3, 75, 75)
 ret, thresh = cv2.threshold(
     bilateral,
     25,
